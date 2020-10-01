@@ -27,12 +27,12 @@ public class Bootstrap implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		System.out.println("##### Starting Data Load #####");
+		System.out.println("****** Starting Data Load ******");
 		
 		if(categoryRepository.count().block()==0) {
 			
 			//load data
-			System.out.println("##### Load Data On Bootstrap #####");
+			System.out.println("****** Load Data On Bootstrap ******");
 			
 			categoryRepository.save(Category.builder().description("Fruits").build()).block();
 			categoryRepository.save(Category.builder().description("Nuts").build()).block();
