@@ -22,11 +22,13 @@ public class CategoryController {
 		this.categoryRepository = categoryRepository;
 	}
 	
+	// Get list of categories
 	@GetMapping("/list")
 	Flux<Category> list(){
 		return categoryRepository.findAll();
 	}
 	
+	// Find one category by id
 	@GetMapping("/list/{id}")
 	Mono<Category> getById(@PathVariable String id){
 		return categoryRepository.findById(id);
