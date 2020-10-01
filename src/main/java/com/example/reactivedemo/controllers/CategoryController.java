@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.example.reactivedemo.domains.Category;
 import com.example.reactivedemo.repositories.CategoryRepository;
@@ -30,6 +31,11 @@ public class CategoryController {
 	@GetMapping("/list/{id}")
 	Mono<Category> getById(@PathVariable String id){
 		return categoryRepository.findById(id);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	void deleteById(@PathVariable String id){
+		categoryRepository.deleteById(id);
 	}
 
 }
